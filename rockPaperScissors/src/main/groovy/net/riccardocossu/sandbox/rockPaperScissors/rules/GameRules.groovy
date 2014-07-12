@@ -1,10 +1,10 @@
-package net.riccardocossu.sandbox.rockPaperScissors.controller;
+package net.riccardocossu.sandbox.rockPaperScissors.rules;
 
 import net.riccardocossu.sandbox.rockPaperScissors.model.Move
 import net.riccardocossu.sandbox.rockPaperScissors.model.MoveValue
 import net.riccardocossu.sandbox.rockPaperScissors.model.Outcome
 
-public class Game {
+public class GameRules {
 	
 	
 	

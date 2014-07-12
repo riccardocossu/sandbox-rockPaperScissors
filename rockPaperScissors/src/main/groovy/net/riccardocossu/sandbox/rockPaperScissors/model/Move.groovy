@@ -10,7 +10,7 @@ public class Move {
 		return player;
 	}
 	public void setPlayer(short player) {
-		assert player >=1 && player <=2
+		assert (player >=1 && player <=2) : "player must be between 1 and 2"
 		this.player = player;
 	}
 		
