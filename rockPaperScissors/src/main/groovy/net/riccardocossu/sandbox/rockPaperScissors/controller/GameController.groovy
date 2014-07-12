@@ -54,11 +54,11 @@ public class GameController {
 			}
 			p1Move = move
 		} else {
-			res = rules.playTurn(p1Move, move)
+			res = rules.playTurn(p1Move.move, move.move)
 			p1Move = null
 		}
 		if(res) {
-			def eo = new GameOutcome(res)
+			def eo = new GameOutcome(outcome: res)
 			for(g in gameOutcomeListeners) {
 				g.processOutcome(eo)
 			}

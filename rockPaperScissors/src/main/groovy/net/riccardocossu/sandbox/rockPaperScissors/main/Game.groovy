@@ -2,6 +2,8 @@ package net.riccardocossu.sandbox.rockPaperScissors.main;
 
 import net.riccardocossu.sandbox.rockPaperScissors.controller.GameController;
 import net.riccardocossu.sandbox.rockPaperScissors.listeners.SimpleConsoleOutcomeListener
+import net.riccardocossu.sandbox.rockPaperScissors.listeners.SimpleGameMoveListener
+import net.riccardocossu.sandbox.rockPaperScissors.listeners.SimpleGameStartListener
 import net.riccardocossu.sandbox.rockPaperScissors.model.Move
 import net.riccardocossu.sandbox.rockPaperScissors.model.MoveValue;
 
@@ -23,6 +25,8 @@ public class Game {
 
 	private Game() {
 		controller.addgameOutcomeListener(new SimpleConsoleOutcomeListener())
+		controller.addGameStartListener(new SimpleGameStartListener())
+		controller.addGameMoveListener(new SimpleGameMoveListener())
 	}
 
 	private void start() {
@@ -31,13 +35,13 @@ public class Game {
 		while(!isQuit) {
 			Move myMove = new Move(player: 1,move: randomMove())
 			MoveValue yourMove = null
-			println "R) ${MoveValue.ROCK.value}"
+			println "\n\nR) ${MoveValue.ROCK.value}"
 			println "S) ${MoveValue.SCISSORS.value}"
 			println "P) ${MoveValue.PAPER.value}"
 			println "N) Start new game"
 			println "Q) Quit"
-			String choice = console.readLine("What's yuor move? I won't cheat, I promise")
-			switch(choice) {
+			String choice = console.readLine("What's yuor move? I won't cheat, I promise\n")
+			switch(choice.toUpperCase()) {
 				case 'N': controller.newGame()
 				break
 				case 'Q': isQuit = true
@@ -48,6 +52,7 @@ public class Game {
 				break
 				case 'P': yourMove = yourMove = MoveValue.PAPER
 				break
+				default: println "Invalid choice: ${choice}, please try again"
 			}
 			if(yourMove) {
 				controller.doMove(myMove)
