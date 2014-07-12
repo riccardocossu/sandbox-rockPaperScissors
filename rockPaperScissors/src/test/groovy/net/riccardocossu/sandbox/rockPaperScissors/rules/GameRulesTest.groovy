@@ -7,7 +7,7 @@ import net.riccardocossu.sandbox.rockPaperScissors.rules.GameRules;
 
 import org.junit.Test;
 
-public class GameTest {
+public class GameRulesTest {
 	
 	GameRules game = new GameRules()
 
